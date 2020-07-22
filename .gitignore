@@ -1,0 +1,7 @@
+*.pyc
+*.os
+*.o
+
+# OS generated files
+.DS_Store
+*.swp
