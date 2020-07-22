@@ -1,0 +1,26 @@
+# SCsub
+Import('env')
+
+sources = [
+    "register_types.cpp",
+    "summator.cpp"
+]
+
+# First, create a custom env for the shared library.
+module_env = env.Clone()
+module_env.Append(CXXFLAGS='-fPIC')  # Needed to compile shared library
+# We don't want godot's dependencies to be injected into our shared library.
+module_env['LIBS'] = []
+
+# Now define the shared library. Note that by default it would be built
+# into the module's folder, however it's better to output it into `bin`
+# next to the godot binary.
+shared_lib = module_env.SharedLibrary(target='#bin/summator', source=sources)
+
+# Finally notify the main env it has our shared lirary as a new dependency.
+# To do so, SCons wants the name of the lib with it custom suffixes
+# (e.g. ".x11.tools.64") but without the final ".so".
+# We pass this along with the directory of our library to the main env.
+shared_lib_shim = shared_lib[0].name.rsplit('.', 1)[0]
+env.Append(LIBS=[shared_lib_shim])
+env.Append(LIBPATH=['#bin'])
