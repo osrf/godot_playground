@@ -26,18 +26,18 @@ Compile Godot:
 scons -j8 platform=x11
 ```
 
-References:
-  * [Compiling_for_x11](https://docs.godotengine.org/en/stable/development/compiling/compiling_for_x11.html).
-
 Testing:
 
 ```
 ./bin/godot.x11.tools.64
 ```
 
+References:
+  * [Compiling_for_x11](https://docs.godotengine.org/en/stable/development/compiling/compiling_for_x11.html).
+
 ## Create a C++ external custom module
 
-Clone this repo:
+Clone this repository:
 
 ```
 mkdir -p ~/workspace && cd ~/workspace
@@ -52,7 +52,7 @@ cd ~/workspace/godot
 scons custom_modules=~/workspace/godot_playground/modules
 ```
 
-We're compiling a custom module (`sumator`) as a shared library, that is
+We're compiling a custom module (`summator`) as a shared library, that is
 dynamically loaded when starting our entry point script. The library is located
 in `~/workspace/godot/bin/libsummator.x11.tools.64.so`.
 
@@ -69,6 +69,6 @@ library of our module. The script `sayhello.gd` automatically imports our
 `summator` module and uses its functionality.
 
 
-Referefences:
+References:
   * [Custom modules in C++](https://docs.godotengine.org/en/2.1/development/cpp/custom_modules_in_cpp.html#using-the-module)
   * [Running a script](https://docs.huihoo.com/godotengine/godot-docs/godot/reference/command_line_tutorial.html#running-a-script)
