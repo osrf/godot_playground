@@ -61,7 +61,7 @@ in `~/workspace/godot/bin/libsummator.x11.tools.64.so`.
 We're going to use a script as an entry point:
 
 ```
-LD_LIBRARY_PATH=~/workspace/godot/bin ./bin/godot.x11.tools.64 -s ~/workspace/godot_playground/scripts/sayhello.gd
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/workspace/godot/bin ./bin/godot.x11.tools.64 -s ~/workspace/godot_playground/scripts/sayhello.gd
 ```
 
 As expected, we need to use `LD_LIBRARY_PATH` for being able to find the shared
