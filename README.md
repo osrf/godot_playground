@@ -56,17 +56,17 @@ We're compiling a custom module (`summator`) as a shared library, that is
 dynamically loaded when starting our entry point script. The library is located
 in `~/workspace/godot/bin/libsummator.x11.tools.64.so`.
 
-## Using our module
+## Using the module
 
 We're going to use a script as an entry point:
 
 ```
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/workspace/godot/bin ./bin/godot.x11.tools.64 -s ~/workspace/godot_playground/scripts/sayhello.gd
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/workspace/godot/bin ./bin/godot.x11.tools.64 -s ~/workspace/godot_playground/scripts/scene_loader.gd
 ```
 
 As expected, we need to use `LD_LIBRARY_PATH` for being able to find the shared
-library of our module. The script `sayhello.gd` automatically imports our
-`summator` module and uses its functionality.
+library of our module. The script `scene_loader.gd` automatically imports our
+module and uses its functionality.
 
 
 References:
